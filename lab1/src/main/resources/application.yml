@@ -1,7 +1,34 @@
+keycloak-issuer: http://localhost:8080/realms/springboot
+
+
 spring:
   h2:
     console:
       enabled: true
-
+  datasource:
+    url: jdbc:h2:file:./data/db
+    driverClassName: "org.h2.Driver"
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: lab1
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: ${keycloak-issuer}
+            user-name-attribute: preferred_username
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak-issuer}
+          jwk-set-uri: ${keycloak-issuer}/protocol/openid-connect/certs
 server:
   port: 8000
