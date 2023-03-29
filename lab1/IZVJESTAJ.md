@@ -1,5 +1,7 @@
 # Izvještaj
 
+Upute za postavljanje aplikacije i Keycloaka su [ovdje](README.md).
+
 Prije svega, dodat ćemo nove biblioteke u `dependencies` u pom.xml:
 - `spring-boot-starter-security`
   - Opća biblioteka za sigurnost u Spring bootu.
