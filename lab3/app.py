@@ -48,7 +48,7 @@ def login_success():
 if __name__ == "__main__":
     user = input("Username: ")
     password = getpass.getpass("Password: ")
-    if user != "root" or password != "123":
+    if user != "root" or password != os.environ["ROOT_PASSWORD"]:
         print("Wrong username or password!")
         exit(0)
     else:
