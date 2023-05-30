@@ -12,14 +12,14 @@ class TestApp(unittest.TestCase):
         self.assertTrue(math.isnan(result))
 
     @patch('builtins.input', return_value='3.4')
-    def test_float_input(self, input):
+    def test_float_input(self, input): # pylint: disable=redefined-builtin,unused-argument
         try:
             app.login_success()
-        except:
+        except: # pylint: disable=bare-except
             self.fail()
 
     @patch('builtins.input', return_value='a')
-    def test_char_input(self, input):
+    def test_char_input(self, input): # pylint: disable=redefined-builtin,unused-argument
         self.assertRaises(ValueError, app.login_success)
 
 if __name__ == '__main__':
