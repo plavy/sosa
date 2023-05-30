@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    
+    stages{
+        stage("Fetch Git repo") {
+            steps {
+                git branch: 'main', credentialsId: '6f0c0be8-081e-46bb-9129-c98f5b5f7a65', url: 'git@github.com:plavy/sosa.git'
+            }
+        }
+        stage("Test") {
+            steps {
+                dir("lab3") {
+                    sh "ls -l"
+                    sh "python -m unittest"
+                }
+            }
+        }
+    }
+}
