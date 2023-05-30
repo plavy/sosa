@@ -10,15 +10,15 @@ pipeline{
         stage("Test") {
             steps {
                 dir("lab3") {
-                    sh "docker build ."
-                    sh "python -m unittest > /home/jenkins/cicd/logs/\$(date +%s)-unittest"
+                    sh "docker build . -t app-test"
+                    sh "python -m unittest > /home/jenkins/cicd/logs/\$(date "+%F-%T")-unittest"
                 }
             }
         }
         stage("Deploy") {
             steps {
                 dir("lab3") {
-                    sh "ls -l"
+                    sh "docker build ."
                 }
             }
         }
