@@ -14,6 +14,7 @@ class TestApp(TestCase):
         result = opm.perform_division()
         self.assertTrue(math.isnan(result))
 
+
     @patch('sys.stdout', new_callable=io.StringIO)
     @patch('builtins.input', return_value='3.4')
     def test_float_input(self, input, output): # pylint: disable=redefined-builtin,unused-argument
@@ -22,6 +23,7 @@ class TestApp(TestCase):
             self.assertEqual(output.getvalue(), "1.0\nResult:  3.4\n")
         except: # pylint: disable=bare-except
             self.fail()
+
 
     @patch('builtins.input', return_value='a')
     def test_char_input(self, input): # pylint: disable=redefined-builtin,unused-argument
