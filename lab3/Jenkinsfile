@@ -10,8 +10,15 @@ pipeline{
         stage("Test") {
             steps {
                 dir("lab3") {
+                    sh "python -m unittest > logs/"
+                    sh "bandir -r ."
+                }
+            }
+        }
+        stage("Deploy") {
+            steps {
+                dir("lab3") {
                     sh "ls -l"
-                    sh "python -m unittest"
                 }
             }
         }
