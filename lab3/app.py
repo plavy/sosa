@@ -31,8 +31,8 @@ class OperationsManager():
 
     def perform_division(self) -> float:
         """Divides a with b. If b is zero, returns NaN."""
-        # if self.b == 0:
-        #     return float("nan")
+        if self.b == 0:
+            return float("nan")
         return self.a / self.b
 
 
@@ -43,7 +43,7 @@ def login_success():
     print(ops_manager.perform_division())
  
     expression = input('Enter a mathematical formula to calculate: ')
-    print ("Result: ", eval_expression(expression))
+    print ("Result: ", eval(expression))
 
 
 if __name__ == "__main__":
