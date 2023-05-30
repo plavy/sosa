@@ -2,7 +2,7 @@ import os
 import getpass
 import ast
 import operator as op
-# import re
+import re
 
 ## Izvor: https://stackoverflow.com/questions/2371436/evaluating-a-mathematical-expression-in-a-string
 operators = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul,
@@ -43,7 +43,7 @@ def login_success():
     print(ops_manager.perform_division())
  
     expression = input('Enter a mathematical formula to calculate: ')
-    print ("Result: ", eval(expression))
+    print ("Result: ", eval_expression(expression))
 
 
 if __name__ == "__main__":
