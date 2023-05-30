@@ -11,7 +11,7 @@ pipeline{
             steps {
                 dir("lab3") {
                     sh "docker build . -t app-test"
-                    sh "python -m unittest > /home/jenkins/cicd/logs/\$(date "+%F-%T")-unittest"
+                    sh "python -m unittest > /home/jenkins/cicd/logs/\$(date '+%F-%T')-unittest"
                 }
             }
         }
