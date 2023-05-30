@@ -10,7 +10,7 @@ pipeline{
         stage("Test") {
             steps {
                 dir("lab3") {
-                    sh "python -m unittest > logs/unittest-$(date +%s)"
+                    sh "python -m unittest > logs/unittest-\$(date +%s)"
                     sh "bandir -r ."
                 }
             }
