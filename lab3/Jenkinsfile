@@ -13,6 +13,7 @@ pipeline{
                     sh "docker build . -t app-test"
                     sh "docker run --env PERFORM_TEST=unittest -v /home/jenkins/cicd/logs:/logs -t app-test"
                     sh "docker run --env PERFORM_TEST=bandit -v /home/jenkins/cicd/logs:/logs -t app-test"
+                    sh "docker run --env PERFORM_TEST=pylint -v /home/jenkins/cicd/logs:/logs -t app-test"
                 }
             }
         }

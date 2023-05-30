@@ -2,6 +2,7 @@ import os
 import getpass
 import ast
 import operator as op
+import apt
 
 ## Izvor: https://stackoverflow.com/questions/2371436/evaluating-a-mathematical-expression-in-a-string
 operators = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul,
