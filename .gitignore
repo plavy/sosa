@@ -2,3 +2,4 @@ target
 data
 .idea
 .vscode
+__pycache__
