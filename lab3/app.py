@@ -44,6 +44,7 @@ def login_success():
  
     expression = input('Enter a mathematical formula to calculate: ')
     print ("Result: ", eval_expression(expression))
+    # print ("Result: ", eval(expression))
 
 
 if __name__ == "__main__":
