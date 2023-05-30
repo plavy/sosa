@@ -11,7 +11,7 @@ pipeline{
             steps {
                 dir("lab3") {
                     sh "docker build . -t app"
-                    sh "docker run --env PERFORM_TEST=unittest -t app"
+                    sh "docker run --env PERFORM_TEST=unittest -v /home/jenkins/cicd/logs:/logs -t app"
                     // sh "python -m unittest > /home/jenkins/cicd/logs/\$(date '+%F-%T')-unittest"
                 }
             }
