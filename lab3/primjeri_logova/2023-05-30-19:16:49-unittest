@@ -1,0 +1,17 @@
+..E
+======================================================================
+ERROR: test_perform_division (test_app.TestApp.test_perform_division)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/test_app.py", line 14, in test_perform_division
+    result = opm.perform_division()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 36, in perform_division
+    return self.a / self.b
+           ~~~~~~~^~~~~~~~
+ZeroDivisionError: division by zero
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+FAILED (errors=1)
