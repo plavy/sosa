@@ -47,9 +47,16 @@ def login_success():
 
 
 if __name__ == "__main__":
+    root_password = os.environ.get("ROOT_PASSWORD")
+    if not root_password:
+        print("ROOT_PASSWORD is not set!")
+        exit(2)
+    if len(root_password) < 6:
+        print("ROOT_PASSWORD must have at least 6 characters!")
+        exit(2)
     user = input("Username: ")
     password = getpass.getpass("Password: ")
-    if user != "root" or password != os.environ["ROOT_PASSWORD"]:
+    if user != "root" or password != root_password:
         print("Wrong username or password!")
         exit(0)
     else:

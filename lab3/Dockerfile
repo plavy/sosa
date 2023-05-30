@@ -1,6 +1,6 @@
 FROM python
 
-ENV ROOT_PASSWORD=123
+ENV ROOT_PASSWORD=123456
 
 RUN pip install bandit pylint
 
