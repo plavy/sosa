@@ -1,5 +1,26 @@
 import os
 import getpass
+import ast
+import operator as op
+
+## Izvor: https://stackoverflow.com/questions/2371436/evaluating-a-mathematical-expression-in-a-string
+operators = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul,
+             ast.Div: op.truediv, ast.Pow: op.pow, ast.BitXor: op.xor,
+             ast.USub: op.neg}
+
+def eval_expression(expr):
+    return eval_(ast.parse(expr, mode='eval').body)
+
+def eval_(node):
+    if isinstance(node, ast.Num):
+        return node.n
+    elif isinstance(node, ast.BinOp):
+        return operators[type(node.op)](eval_(node.left), eval_(node.right))
+    elif isinstance(node, ast.UnaryOp):
+        return operators[type(node.op)](eval_(node.operand))
+    else:
+        raise TypeError(node)
+##
 
 class OperationsManager():
 
@@ -21,7 +42,7 @@ def login_success():
     print(ops_manager.perform_division())
  
     expression = input('Enter a mathematical formula to calculate: ')
-    print ("Result: ", eval(expression))
+    print ("Result: ", eval_expression(expression))
 
 
 if __name__ == "__main__":
