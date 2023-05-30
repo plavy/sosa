@@ -10,8 +10,8 @@ pipeline{
         stage("Test") {
             steps {
                 dir("lab3") {
-                    sh "docker build . -t app-test"
-                    sh "docker run -t app-test --env PERFORM_TEST=unittest"
+                    sh "docker build . -t app"
+                    sh "docker run --env PERFORM_TEST=unittest -t app"
                     // sh "python -m unittest > /home/jenkins/cicd/logs/\$(date '+%F-%T')-unittest"
                 }
             }
