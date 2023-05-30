@@ -10,16 +10,16 @@ pipeline{
         stage("Test") {
             steps {
                 dir("lab3") {
-                    sh "docker build . -t app"
-                    sh "docker run --env PERFORM_TEST=unittest -v /home/jenkins/cicd/logs:/logs -t app"
-                    sh "docker run --env PERFORM_TEST=bandit -v /home/jenkins/cicd/logs:/logs -t app"
+                    sh "docker build . -t app-test"
+                    sh "docker run --env PERFORM_TEST=unittest -v /home/jenkins/cicd/logs:/logs -t app-test"
+                    sh "docker run --env PERFORM_TEST=bandit -v /home/jenkins/cicd/logs:/logs -t app-test"
                 }
             }
         }
         stage("Deploy") {
             steps {
                 dir("lab3") {
-                    sh "docker build ."
+                    sh "docker build . -t app-production"
                 }
             }
         }
